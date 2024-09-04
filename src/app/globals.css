@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Red October';
+  src: url('../../public/fonts/Impact.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Personalização da barra de rolagem */
+::-webkit-scrollbar {
+  width: 12px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+  background: #1B1D1C; /* Cor do trilho da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4C393; /* Cor do "polegar" (parte que se move) da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #EA1821; /* Cor do "polegar" ao passar o mouse */
+}
+
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  background-color: #1B1D1C;
+  font-family: 'Impact', sans-serif;
+}
+
+.text-align-right{
+  text-align: right;
+}
+
+/* src/app/globals.css */
+
+/* Sombra sólida e sem gradiente */
+.shadow-custom {
+  box-shadow: -4px 4px 0px #C4C393; /* Ajuste o valor para a sombra que desejar */
+}
+
+.shadow-custom:hover {
+  box-shadow: -6px 6px 0px #EA1821; /* A mesma sombra para o estado hover */
+}
+
+.shadow-custom-2 {
+  box-shadow: -4px 4px 0px #1B1D1C; /* Ajuste o valor para a sombra que desejar */
+}
+
+.shadow-custom-2:hover {
+  box-shadow: -6px 6px 0px #EA1821; /* A mesma sombra para o estado hover */
+}
+

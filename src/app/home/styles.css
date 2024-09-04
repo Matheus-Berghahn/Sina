@@ -1,0 +1,37 @@
+
+/* Define o layout do grid e o comportamento dos templates */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Duas colunas de tamanho igual */
+}
+
+.template1, .template2 {
+  transition: width 0.3s ease-in-out; /* Transição suave para a largura */
+}
+
+/* Largura padrão dos templates */
+.template1 {
+  width: 100%;
+}
+
+.template2 {
+  width: 100%;
+}
+
+/* Alteração ao passar o mouse sobre o template1 */
+.template1:hover {
+  width: 125%;
+}
+
+.template1:hover ~ .template2 {
+  width: 75%;
+}
+
+/* Alteração ao passar o mouse sobre o template2 */
+.template2:hover {
+  width: 125%;
+}
+
+.template2:hover ~ .template1 {
+  width: 55%;
+}
