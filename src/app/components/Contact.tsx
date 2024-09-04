@@ -5,7 +5,7 @@ import Image from 'next/image';
 import contato from '../../../public/images/contato.png'; // Importando o logo
 
 interface ContactProps {
-  contactInView: boolean;
+  contactInView?: boolean;
 }
 
 const Contact: React.FC<ContactProps> = ({ contactInView }) => {
