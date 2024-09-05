@@ -16,6 +16,8 @@ const Welcome = () => {
   const textRef1 = useRef<HTMLParagraphElement>(null);
   const textRef2 = useRef<HTMLParagraphElement>(null);
 
+  const isMobile = () => window.innerWidth <= 768;
+
   const handleAnimationAndRedirect = () => {
     const timeline = gsap.timeline({
       onComplete: () => {
@@ -49,7 +51,7 @@ const Welcome = () => {
           duration: 1,
           ease: "power2.inOut",
           x: 350,
-          scale:1.4,
+          scale: 1.4,
           paddingBottom: "40px"
         },
         0
@@ -87,6 +89,12 @@ const Welcome = () => {
   };
 
   useEffect(() => {
+    // Se for móvel, redireciona diretamente
+    if (isMobile()) {
+      router.push("/home");
+      return;
+    }
+
     // Animação inicial
     gsap.fromTo(
       titleRef.current,
@@ -124,37 +132,37 @@ const Welcome = () => {
   return (
     <div className="flex h-screen relative overflow-hidden">
       {/* Lado Esquerdo */}
-      <div className="w-1/2 bg-terciary text-secondary flex flex-col justify-between p-10 z-50">
+      <div className="w-full md:w-1/2 bg-terciary text-secondary flex flex-col justify-between p-10 z-50">
         <div className="z-50">
-          <h1 ref={titleRef} className="text-8xl font-bold pt-20">
+          <h1 ref={titleRef} className="text-4xl md:text-8xl font-bold pt-10 md:pt-20">
             BEM-VINDO À SINA.
           </h1>
-          <p ref={subtitleRef} className="text-secondary text-3xl mt-4">
+          <p ref={subtitleRef} className="text-secondary text-xl md:text-3xl mt-2 md:mt-4">
             Sua solução para design e desenvolvimento.
           </p>
         </div>
-        <div className="flex justify-between h-full items-center pt-32 pr-20 gap-9 z-50">
-          <p ref={textRef1} className="text-secondary">
+        <div className="flex flex-col md:flex-row justify-between h-full items-start md:items-center pt-8 md:pt-32 pr-0 md:pr-20 gap-4 md:gap-9 z-50">
+          <p ref={textRef1} className="text-secondary text-sm md:text-base">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget
             ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.
             Pellentesque habitant morbi tristique senectus et netus et malesuada
             fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor
             et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut
-            adipiscing
+            adipiscing.
           </p>
-          <p ref={textRef2} className="text-secondary">
+          <p ref={textRef2} className="text-secondary text-sm md:text-base">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget
             ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.
             Pellentesque habitant morbi tristique senectus et netus et malesuada
             fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor
             et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut
-            adipiscing
+            adipiscing.
           </p>
         </div>
       </div>
 
       {/* Lado Direito */}
-      <div className="w-1/2 bg-secondary relative z-10 ">
+      <div className="hidden md:block w-1/2 bg-secondary relative z-10">
         <img
           src="/images/home.jpg"
           alt="Imagem"

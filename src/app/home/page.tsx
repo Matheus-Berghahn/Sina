@@ -82,7 +82,7 @@ export default function Home() {
 
   return (
     <>
-      <div ref={shapeRef} className='w-full h-full bg-terciary absolute left-0 top-0 z-50'></div>
+      <div ref={shapeRef} className='w-full h-full bg-terciary absolute left-0 top-0 z-50 hidden md:block'></div>
       <Header />
       <div ref={aboutRef} >
         <About aboutInView={aboutInView} />
