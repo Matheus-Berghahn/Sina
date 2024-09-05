@@ -17,16 +17,16 @@ const Header = () => {
   });
 
   return (
-    <div className="relative bg-secondary text-terciary flex flex-col items-center py-24">
+    <div className="relative bg-secondary text-terciary flex flex-col items-center py-24 md:py-24">
       <div ref={sinaRef} className={`duration-1000 ${sinaVisible ? 'opacity-100' : 'opacity-0'}`}>
         <Image 
           src={logo} 
           alt="Sina Logo" 
-          width={700} // Ajuste o tamanho conforme necessário
-          className="object-contain"
+          width={700} // Mantém o tamanho original para desktop
+          className="object-contain w-[300px] md:w-[700px]" // Reduzido apenas em telas menores
         />
       </div>
-      <p ref={subSinaRef} className={`text-lg mt-4 max-w-lg text-center tracking-wide delay-300 duration-500 z-50 ${sinaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <p ref={subSinaRef} className={`text-sm md:text-lg mt-4 max-w-xs md:max-w-lg text-center tracking-wide delay-300 duration-500 z-50 ${sinaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         Transformamos suas ideias em realidade com design inovador e soluções criativas. 
       </p>
     </div>

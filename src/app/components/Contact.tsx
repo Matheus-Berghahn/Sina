@@ -11,7 +11,7 @@ interface ContactProps {
 const Contact: React.FC<ContactProps> = ({ contactInView }) => {
   const h2Ref3 = useRef<HTMLHeadingElement | null>(null);
   const hrRef3 = useRef<HTMLHRElement | null>(null);
-  const btnRef = useRef<HTMLHRElement | null>(null);
+  const btnRef = useRef<HTMLDivElement | null>(null); // Correção de tipo
   const flexDivRef3 = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const Contact: React.FC<ContactProps> = ({ contactInView }) => {
       gsap.fromTo(
         btnRef.current,
         { opacity: 0 },
-        { opacity: 1, duration: 1, ease: "power2.out", delay: 0.5 }
+        { opacity: 1, duration: 1, ease: "power2.out", delay: 0.6 }
       );
     }
   }, [contactInView]);
@@ -45,47 +45,49 @@ const Contact: React.FC<ContactProps> = ({ contactInView }) => {
   return (
     <div className="w-full h-full py-32">
       <div className="text-terciary bg-secondary">
-        <div className="container mx-auto">
-          <div ref={flexDivRef3} className="flex">
-            <div className="w-full flex justify-start items-end">
-                  <Image 
+        <div className="container mx-auto px-4"> {/* Padding para responsividade */}
+          <div ref={flexDivRef3} className="flex flex-col md:flex-row items-center md:items-end gap-6">
+            <div className="flex justify-center md:justify-start w-full md:w-1/2">
+              <Image 
                 src={contato} 
                 alt="contato" 
-                width={700} // Ajuste o tamanho conforme necessário
+                width={700} // Ajuste conforme necessário
                 className="object-contain"
               />
-              <p className="text-2xl tracking-wide leading-relaxed max-w-2xl pl-10">
+            </div>
+            <div className="w-full md:w-1/2">
+              <p className="text-2xl tracking-wide leading-relaxed max-w-2xl">
                 Entre em contato conosco para discutir suas necessidades de design e desenvolvimento.
                 Estamos aqui para ajudar você a transformar suas ideias em realidade.
               </p>
             </div>
           </div>
-          <div ref={btnRef} className="flex justify-end pt-16 gap-10 ">
-                <a 
-                  href="/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-block px-6 py-3 text-terciary bg-secondary border border-terciary shadow-custom  transition-colors duration-300 ease-in-out hover:bg-secondary hover:text-terciary "
-                >
-                  WhatsApp
-                </a>
-                <a 
-                  href="/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-block px-6 py-3 text-terciary bg-secondary border border-terciary shadow-custom  transition-colors duration-300 ease-in-out hover:bg-secondary hover:text-terciary "
-                >
-                  Instagram
-                </a>
-                <a 
-                  href="/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-block px-6 py-3 text-terciary bg-secondary border border-terciary shadow-custom  transition-colors duration-300 ease-in-out hover:bg-secondary hover:text-terciary "
-                >
-                  E-mail
-                </a>
-              </div>
+          <div ref={btnRef} className="flex justify-center md:justify-end pt-5 md:pt-16 gap-2 md:gap-10">
+            <a 
+              href="/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-block px-6 py-3  text-terciary bg-secondary border border-terciary shadow-custom transition-colors duration-300 ease-in-out hover:bg-secondary hover:text-terciary"
+            >
+              WhatsApp
+            </a>
+            <a 
+              href="/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-block px-6 py-3  text-terciary bg-secondary border border-terciary shadow-custom transition-colors duration-300 ease-in-out hover:bg-secondary hover:text-terciary"
+            >
+              Instagram
+            </a>
+            <a 
+              href="/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-block px-6 py-3  text-terciary bg-secondary border border-terciary shadow-custom transition-colors duration-300 ease-in-out hover:bg-secondary hover:text-terciary"
+            >
+              E-mail
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -24,34 +24,39 @@ const LandingPage = () => {
   const productImages = [template6, template7, template8, template9, template10];
 
   return (
-    <div className='bg-secondary overflow-hidden'> {/* Adiciona overflow-hidden para garantir que o scroll X não ocorra */}
+    <div className='bg-secondary overflow-hidden'>
       <Header />
 
       {/* Seção de Portfólio */}
-      <section className={`relative py-32 bg-secondary text-tertiary`}>
-        <div className="absolute top-0 left-10 w-full h-full bg-secondary z-0 pt-20"> {/* Centraliza a imagem corretamente */}
+      <section className={`relative py-20 md:py-32 bg-secondary text-tertiary`}>
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl h-full bg-secondary z-0 pt-12 md:pt-20">
           <Image 
             src={bgPortfolio} 
             alt="Background Portfolio" 
-            width={600} 
-            className="object-contain" /* Ajuste de alinhamento */
+            width={700} 
+            className="object-contain" 
           />
         </div>
-        <SlideShow images={portfolioImages} />
+        <div className="relative z-10 px-4 sm:px-8 pt-10 md:pt-20">
+          <SlideShow images={portfolioImages} />
+        </div>
       </section>
 
       {/* Seção de Produtos */}
-      <section className={`relative py-32 bg-terciary text-tertiary mt-10`}>
-        <div className="absolute top-0 left-10 w-full h-full bg-terciary z-0 pt-20"> {/* Centraliza a imagem corretamente */}
+      <section className={`relative py-20 md:py-32 bg-terciary text-tertiary mt-12`}>
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl h-full bg-terciary z-0 pt-12 md:pt-20">
           <Image 
             src={bgProducts} 
             alt="Background Products" 
-            width={600} 
-            className="object-contain" /* Ajuste de alinhamento */
+            width={700} 
+            className="object-contain" 
           />
         </div>
-        <SlideShow images={productImages} />
+        <div className="relative z-10 px-4 sm:px-8 pt-10 md:pt-20">
+          <SlideShow images={productImages} />
+        </div>
       </section>
+      
       <Contact />
       <ContactButton />
     </div>

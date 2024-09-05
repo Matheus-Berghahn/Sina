@@ -1,4 +1,3 @@
-// src/app/components/About.tsx
 import React, { useRef, useEffect } from "react";
 import { gsap } from 'gsap';
 import "../../app/globals.css";
@@ -10,8 +9,8 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ aboutInView }) => {
-  const pRef2 = useRef<HTMLHeadingElement | null>(null);
-  const ctaRef = useRef<HTMLHeadingElement | null>(null);
+  const pRef2 = useRef<HTMLParagraphElement | null>(null);
+  const ctaRef = useRef<HTMLDivElement | null>(null);
   const h2Ref2 = useRef<HTMLHeadingElement | null>(null);
   const hrRef2 = useRef<HTMLHRElement | null>(null);
   const flexDivRef2 = useRef<HTMLDivElement | null>(null);
@@ -59,41 +58,41 @@ const About: React.FC<AboutProps> = ({ aboutInView }) => {
   }, [aboutInView]);
 
   return (
-    <div className="w-full h-full pb-32 ">
+    <div className="w-full h-full pb-32">
       <div className="text-terciary bg-secondary">
-        <div className="container mx-auto ">
+        <div className="container mx-auto px-4"> {/* Padding para mobile sem alterar desktop */}
           <div ref={h2AlignRef2} className="text-left mb-8 duration-700 relative">
-            <h2 ref={h2Ref2} className="text-4xl font-bold mb-2 opacity-0 tracking-wide">Sobre</h2>
-            <hr ref={hrRef2} className="border-terciary text-terciary border-t-2 mx-auto absolute w-0" />
+            <h2 ref={h2Ref2} className="text-4xl font-bold mb-2 opacity-0 tracking-wide">Sobre</h2> {/* Garantindo que "Sobre" apareça */}
+            <hr ref={hrRef2} className="border-terciary border-t-2 mx-auto absolute left-0" /> {/* Linha abaixo do título */}
           </div>
-          <div className="flex items-center justify-between">
-            <div className="flex flex-col items-start pl-10 w-3/6 gap-14">
+          <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between md:gap-0">
+            <div className="flex flex-col items-start w-full md:w-3/6 gap-6 md:gap-14 p-4 md:pl-10">
               <p ref={pRef2} className="text-lg text-justify tracking-wide">
                 Aqui está um texto descritivo sobre o que você deseja compartilhar. Este parágrafo pode conter informações sobre a empresa, o projeto ou qualquer outro conteúdo relevante que você queira destacar. Aqui está um texto descritivo sobre o que você deseja compartilhar. Este parágrafo pode conter informações sobre a empresa, o projeto ou qualquer outro conteúdo relevante que você queira destacar.
                 Aqui está um texto descritivo sobre o que você deseja compartilhar. Este parágrafo pode conter informações sobre a empresa, o projeto ou qualquer outro conteúdo relevante que você queira destacar. Aqui está um texto descritivo sobre o que você deseja compartilhar. Este parágrafo pode conter informações sobre a empresa, o projeto ou qualquer outro conteúdo relevante que você queira destacar.
               </p>
-              <div ref={ctaRef} className="flex justify-center ">
+              <div ref={ctaRef} className="flex justify-center md:justify-start">
                 <a 
                   href="/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="inline-block px-6 py-3 text-terciary bg-secondary border border-terciary shadow-custom  transition-colors duration-300 ease-in-out hover:bg-secondary hover:text-terciary "
+                  className="inline-block px-6 py-3 text-terciary bg-secondary border border-terciary shadow-custom transition-colors duration-300 ease-in-out hover:bg-secondary hover:text-terciary"
                 >
                   Instagram
                 </a>
               </div>
             </div>
-            <div className="flex w-3/6 justify-end">
+            <div className="flex w-full md:w-3/6 justify-center md:justify-end mt-6 md:mt-0">
               <Image
                 ref={imgRef}
                 src={image_about} 
                 alt="Sina Logo" 
                 width={600} 
-                className="object-contain"
+                height={400} 
+                className="object-contain md:w-[600px]"
               />
             </div>
           </div>
-          
         </div>
       </div>
     </div>

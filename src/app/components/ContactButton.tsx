@@ -29,7 +29,7 @@ const ContactButton = () => {
     <a
       ref={contactButtonRef} // Adiciona a referência aqui
       href="/"
-      className="fixed top-4 right-4 px-6 py-3 text-terciary bg-secondary border border-terciary shadow-custom transition-colors duration-300 ease-in-out hover:bg-secondary hover:text-terciary z-50"
+      className=" hidden md:blockfixed top-4 right-4 px-6 py-3 text-terciary bg-secondary border border-terciary shadow-custom transition-colors duration-300 ease-in-out hover:bg-secondary hover:text-terciary z-50"
       rel="noopener noreferrer"
     >
       ENTRAR EM CONTATO
